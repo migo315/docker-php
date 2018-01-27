@@ -10,7 +10,6 @@ RUN apt-get update && apt-get install -y php7.1-fpm \
  php7.1-pgsql \
  php7.1-curl \
  php7.1-xml \
- php-xdebug \
  php7.1-mbstring
 
 # configure php fpm
@@ -49,14 +48,6 @@ RUN apt-get -qqy install curl
 
 ################## COMPOSER ##################
 RUN curl -sS https://getcomposer.org/installer | php && mv composer.phar /usr/local/bin/composer
-
-################## XDEBUG ##################
-RUN echo "zend_extension=/usr/lib/php/20151012/xdebug.so" > /etc/php/7.1/mods-available/xdebug.ini
-RUN echo "xdebug.remote_enable=0" >> /etc/php/7.1/mods-available/xdebug.ini
-RUN echo "xdebug.remote_port=9001" >> /etc/php/7.1/mods-available/xdebug.ini
-RUN echo "xdebug.idekey=PHPSTORM" >> /etc/php/7.1/mods-available/xdebug.ini
-RUN echo "xdebug.remote_log = /var/log/nginx/xdebug_remote.log" >> /etc/php/7.1/mods-available/xdebug.ini
-RUN echo "xdebug.remote_autostart=1" >> /etc/php/7.1/mods-available/xdebug.ini
 
 WORKDIR /var/www/html
 
