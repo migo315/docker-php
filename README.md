@@ -32,3 +32,31 @@ services:
             MYSQL_ROOT_PASSWORD: root
             MYSQL_DATABASE: coolDb
 ```
+
+or with postgres:
+
+```
+version: '2'
+services:
+    nginx:
+        image: nginx:latest
+        ports:
+            - 80:80
+        volumes_from:
+            - php
+        links:
+            - php
+    php:
+        image: migoapps/docker-php:1.3.0
+        volumes:
+            - ./:/var/www/html
+            - ./docker/nginx.conf:/etc/nginx/conf.d/app.conf
+        links:
+            - db
+    db:
+        image: postgres
+        environment:
+            POSTGRES_USER: db
+            POSTGRES_PASSWORD: db
+            POSTGRES_DB: data
+```

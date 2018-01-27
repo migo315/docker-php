@@ -7,6 +7,7 @@ RUN apt-get update && apt-get install -y php7.1-fpm \
  openssl \
  php7.1 \
  php7.1-mysql \
+ php7.1-pgsql \
  php7.1-curl \
  php7.1-xml \
  php-xdebug \
