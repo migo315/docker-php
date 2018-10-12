@@ -10,6 +10,7 @@ RUN apt-get update && apt-get install -y php7.1-fpm \
  php7.1-pgsql \
  php7.1-curl \
  php7.1-xml \
+ php7.1-gd \
  php7.1-mbstring
 
 # configure php fpm
