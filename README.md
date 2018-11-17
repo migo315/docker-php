@@ -18,7 +18,7 @@ services:
         links:
             - php
     php:
-        image: migoapps/docker-php:2.2.0
+        image: migoapps/docker-php:2.3.0
         volumes:
             - ./:/var/www/html
             - ./docker/nginx.conf:/etc/nginx/conf.d/app.conf
@@ -47,7 +47,7 @@ services:
         links:
             - php
     php:
-        image: migoapps/docker-php:2.2.0
+        image: migoapps/docker-php:2.3.0
         volumes:
             - ./:/var/www/html
             - ./docker/nginx.conf:/etc/nginx/conf.d/app.conf
