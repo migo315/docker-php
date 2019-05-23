@@ -12,7 +12,8 @@ RUN apt-get update && apt-get install -y php7.2-fpm \
  php7.2-xml \
  php7.2-gd \
  php7.2-zip \
- php7.2-mbstring
+ php7.2-mbstring \
+ php7.2-amqp
 
 # configure php fpm
 RUN sed -i -e "s/;date.timezone =.*/date.timezone = 'Europe\/Berlin'/g" /etc/php/7.2/fpm/php.ini && \
