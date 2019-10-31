@@ -17,6 +17,12 @@ RUN apt-get update && apt-get install -y php7.2-fpm \
  php7.2-intl \
  php-redis
 
+RUN apt-get update && apt-get install -y gnupg2 \
+    && wget -q -O - https://packages.blackfire.io/gpg.key | apt-key add - \
+    && echo "deb http://packages.blackfire.io/debian any main" | tee /etc/apt/sources.list.d/blackfire.list \
+    && apt-get update \
+    && apt-get install -y blackfire-php
+
 # configure php fpm
 RUN sed -i -e "s/;date.timezone =.*/date.timezone = 'Europe\/Berlin'/g" /etc/php/7.2/fpm/php.ini && \
     sed -i -e "s/post_max_size =.*/post_max_size = 100M/g" /etc/php/7.2/fpm/php.ini && \
