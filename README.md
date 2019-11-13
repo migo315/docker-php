@@ -1,7 +1,7 @@
 PHP Docker Image
 ========================
 
-This is just a simple docker image for running php (eg. for symfony) with version 7.2.
+This is just a simple docker image for running php (eg. for symfony) with version 7.3.
 
 EXAMPLE:
 -------
@@ -18,7 +18,7 @@ services:
         links:
             - php
     php:
-        image: migoapps/docker-php:2.3.0
+        image: migoapps/docker-php:3.0.0
         volumes:
             - ./:/var/www/html
             - ./docker/nginx.conf:/etc/nginx/conf.d/app.conf
@@ -47,7 +47,7 @@ services:
         links:
             - php
     php:
-        image: migoapps/docker-php:2.3.0
+        image: migoapps/docker-php:3.0.0
         volumes:
             - ./:/var/www/html
             - ./docker/nginx.conf:/etc/nginx/conf.d/app.conf
