@@ -1,6 +1,6 @@
 FROM debian:buster
 
-MAINTAINER Michel Chowanski version 3.0.0
+MAINTAINER Michel Chowanski version 3.0.1
 
 ################## PHP ##################
 RUN apt-get update && apt-get install -y php7.3-fpm \
