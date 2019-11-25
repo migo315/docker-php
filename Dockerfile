@@ -1,6 +1,12 @@
 FROM debian:buster
 
-MAINTAINER Michel Chowanski version 3.0.1
+MAINTAINER Michel Chowanski version 3.1.0
+
+RUN apt-get update && \
+    apt-get -y install wget apt-transport-https ca-certificates lsb-release curl && \
+    wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg && \
+    sh -c 'echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list' && \
+    apt-get update
 
 ################## PHP ##################
 RUN apt-get update && apt-get install -y php7.3-fpm \
